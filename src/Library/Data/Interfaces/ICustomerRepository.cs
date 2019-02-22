@@ -1,6 +1,8 @@
-﻿namespace Library.Data.Interfaces
+﻿using Library.Data.Model;
+
+namespace Library.Data.Interfaces
 {
-    public interface ICustomerRepository
+    public interface ICustomerRepository : IRepository<Customer>
     {
 
     }

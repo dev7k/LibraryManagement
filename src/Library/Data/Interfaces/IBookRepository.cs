@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Library.Data.Interfaces
 {
-    public interface IBookRepository
+    public interface IBookRepository : IRepository<Book>
     {
         IEnumerable<Book> GetAllWithAuthor();
         IEnumerable<Book> FindWithAuthor(Func<Book, bool> predicate);
