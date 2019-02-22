@@ -18,7 +18,7 @@ namespace Library.Controllers
             _bookRepository = bookRepository;
         }
 
-
+        [Route("Customer")]
         public IActionResult List()
         {
             var customerViewModel = new List<CustomerViewModel>();
