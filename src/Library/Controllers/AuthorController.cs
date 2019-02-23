@@ -18,7 +18,7 @@ namespace Library.Controllers
         [Route("Author")]
         public IActionResult List()
         {
-            var authors = _authorRepository.GetAll();
+            var authors = _authorRepository.GetAllWithBooks();
 
             if (authors.Count() == 0) return View("Empty");
 
