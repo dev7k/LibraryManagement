@@ -17,8 +17,6 @@ namespace Library.Data.Repository
 
         protected void Save() => _context.SaveChanges();
 
-        public LibraryDbContext LibraryDbContext { get; }
-
         public int Count(Func<T, bool> predicate)
         {
             return _context.Set<T>().Where(predicate).Count();
