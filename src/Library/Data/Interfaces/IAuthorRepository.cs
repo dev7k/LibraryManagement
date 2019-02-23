@@ -5,7 +5,7 @@ namespace Library.Data.Interfaces
 {
     public interface IAuthorRepository : IRepository<Author>
     {
-        IEnumerable<Author> GetAllWitBooks();
+        IEnumerable<Author> GetAllWithBooks();
         Author GetWithBooks(int id);
     }
 }

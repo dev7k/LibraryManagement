@@ -6,13 +6,13 @@ using System.Linq;
 
 namespace Library.Data.Repository
 {
-    public class AuthorRespository : Repository<Author>, IAuthorRepository
+    public class AuthorRepository : Repository<Author>, IAuthorRepository
     {
-        public AuthorRespository(LibraryDbContext context) : base(context)
+        public AuthorRepository(LibraryDbContext context) : base(context)
         {
         }
 
-        public IEnumerable<Author> GetAllWitBooks()
+        public IEnumerable<Author> GetAllWithBooks()
         {
             return _context.Authors.Include(a => a.Books);
         }

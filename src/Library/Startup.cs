@@ -33,7 +33,7 @@ namespace Library
             services.AddDbContext<LibraryDbContext>(options => options.UseInMemoryDatabase("LibraryMemoryContext"));
             services.AddTransient<ICustomerRepository, CustomerRepository>();
             services.AddTransient<IBookRepository, BookRepository>();
-            services.AddTransient<IAuthorRepository, AuthorRespository>();
+            services.AddTransient<IAuthorRepository, AuthorRepository>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
@@ -59,7 +59,7 @@ namespace Library
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
 
-            DbInitialize.Seed(app);
+            DbInitializer.Seed(app);
         }
     }
 }

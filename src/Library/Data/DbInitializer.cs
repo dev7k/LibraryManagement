@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace Library.Data
 {
-    public class DbInitialize
+    public class DbInitializer
     {
         public static void Seed(IApplicationBuilder app)
         {
