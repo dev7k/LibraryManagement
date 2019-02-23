@@ -1,5 +1,6 @@
 ﻿using Library.Data.Interfaces;
 using Library.Data.Model;
+using Library.ViewModel;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -69,6 +70,64 @@ namespace Library.Controllers
             {
                 return View(books);
             }
+        }
+
+        public IActionResult Create()
+        {
+            var bookViewModel = new BookViewModel()
+            {
+                Authors = _authorRepository.GetAll()
+            };
+
+            return View(bookViewModel);
+        }
+
+        [HttpPost]
+        public IActionResult Create(BookViewModel bookViewModel)
+        {
+            if (!ModelState.IsValid)
+            {
+                bookViewModel.Authors = _authorRepository.GetAll();
+                return View(bookViewModel);
+            }
+
+            _bookRepository.Create(bookViewModel.Book);
+
+            return RedirectToAction("List");
+        }
+
+        public IActionResult Update(int id)
+        {
+            var bookViewModel = new BookViewModel()
+            {
+                Book = _bookRepository.GetById(id),
+                Authors = _authorRepository.GetAll()
+            };
+
+            return View(bookViewModel);
+        }
+
+        [HttpPost]
+        public IActionResult Update(BookViewModel bookViewModel)
+        {
+            if (!ModelState.IsValid)
+            {
+                bookViewModel.Authors = _authorRepository.GetAll();
+                return View(bookViewModel);
+            }
+
+            _bookRepository.Update(bookViewModel.Book);
+
+            return RedirectToAction("List");
+        }
+
+        public IActionResult Delete(int id)
+        {
+            var book = _bookRepository.GetById(id);
+
+            _bookRepository.Delete(book);
+
+            return RedirectToAction("List");
         }
     }
 }
