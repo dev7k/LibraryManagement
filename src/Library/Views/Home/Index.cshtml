@@ -1,8 +1,46 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model HomeViewModel
+@{
+    int availableBooks = Model.BookCount - Model.LendBookCount;
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<h1>Library dashboard</h1>
+
+<div class="row">
+    <div class="col-sm-6" style="margin-bottom: 5px;">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Customers Count</h5>
+                <p class="card-text">There are @Model.CustomerCount customers</p>
+                <a class="btn btn-primary" asp-controller="Customer" asp-action="List">Customers</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6" style="margin-bottom: 5px;">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Authors Count</h5>
+                <p class="card-text">There are @Model.AuthorCount authors</p>
+                <a class="btn btn-warning" asp-controller="Author" asp-action="List">Authors</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6" style="margin-bottom: 5px;">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Books Count</h5>
+                <p class="card-text">There are @availableBooks books available out of @Model.BookCount books</p>
+                <a class="btn btn-success" asp-controller="Book" asp-action="List">Books</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6" style="margin-bottom: 5px;">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Lend Count</h5>
+                <p class="card-text">There are @Model.LendBookCount lended books out of @Model.BookCount books</p>
+                <a class="btn btn-danger" asp-controller="Lend" asp-action="List">Lends</a>
+            </div>
+        </div>
+    </div>
 </div>
+
