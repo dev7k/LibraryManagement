@@ -19,8 +19,8 @@
                 <td>@book.BookId</td>
                 <td>@book.Title</td>
                 <td>@book.Author.Name</td>
-                <td><a class="btn btn-info" asp-area="" asp-controller="Book" asp-action="Update" asp-route-id="@book.BookId">Edit</a></td>
-                <td><a class="btn btn-danger" asp-area="" asp-controller="Book" asp-action="Delete" asp-route-id="@book.BookId" asp-route-authorId="@ViewBag.AuthorId">Delete</a></td>
+                <td><a class="btn btn-info btn-sm" asp-area="" asp-controller="Book" asp-action="Update" asp-route-id="@book.BookId">Edit</a></td>
+                <td><a class="btn btn-danger btn-sm" asp-area="" asp-controller="Book" asp-action="Delete" asp-route-id="@book.BookId" asp-route-authorId="@ViewBag.AuthorId">Delete</a></td>
             </tr>
         }
     </tbody>
